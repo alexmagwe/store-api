@@ -3,7 +3,7 @@ from flask_migrate import Migrate,MigrateCommand
 from flask_script import Shell,Manager
 import click
 from api.models import Products
-app=create_app()
+app=create_app('production')
 manager=Manager(app)
 @app.cli.command('gendata')
 @click.argument('size')

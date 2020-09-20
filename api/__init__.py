@@ -6,9 +6,9 @@ from .config import configs
 db=SQLAlchemy()
 migrate=Migrate()
 cors=CORS()
-def create_app(conf=configs['development']):
+def create_app(env='development'):
     app=Flask(__name__)
-    app.config.from_object(conf)
+    app.config.from_object(configs[env])
     migrate.init_app(app,db)
     db.init_app(app)
     cors.init_app(app)
