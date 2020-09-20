@@ -13,6 +13,8 @@ class Development(Config):
     
 class Production(Config):
     SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL')
+    DEBUG=False
+    LOG_TO_STDOUT=True
     
     
 configs={'development':Development,"production":Production}
