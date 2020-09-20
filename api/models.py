@@ -11,10 +11,10 @@ class Products(db.Model):
     def getQuantity(self):
         total=len(Products.query.filter_by(name=self.name).all())
         return total
-    def generatefake(count=100):
+    def generatefake():
         with open('MOCK_DATA.csv') as file:
             reader=csv.DictReader(file)
-            for line in reader[:count]:
+            for line in reader:
                 p=Products(name=line['name'],price=line['price'])
                 db.session.add(p)
                 try:
